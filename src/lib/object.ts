@@ -18,9 +18,9 @@ const Saker = {
    * @returns return a random string or number given as param
    */
   oneOf: (sample: ReadonlyArray<string | number>) =>
-    function () {
+    (function () {
       return oneOf(sample);
-    },
+    })(),
   /**
    * @param sample: ReadonlyArray<string | number>
    * @returns return a random string, number or obj given as param
