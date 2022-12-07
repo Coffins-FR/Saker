@@ -51,3 +51,8 @@ const words = Saker.lorem(2, 'words');
 const sentences = Saker.lorem(2, 'sentences');
 const chars = Saker.lorem(2, 'chars');
 ```
+
+## More to come
+
+- [] Inclusion of a compatibility with non regressing tools
+- [] More random functions (Dates, Adresses, Basics Profils...)

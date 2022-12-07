@@ -2,19 +2,47 @@ import data from '../../sample/lorem.json';
 import random from '../../utils/_random';
 import manyOf from '../randomizers/manyOf';
 
-export default function lorem(iteration = 1, typeOfText: string) {
+export default function lorem(
+  iteration = 1,
+  typeOfText: string,
+  isRandom?: boolean,
+  paragraphSize?: number
+) {
   const sample: string = data.text;
   switch (typeOfText) {
     case 'sentences':
-      return manyOf(iteration, sample.split('.'));
+      if (!isRandom) {
+        return manyOf(iteration, sample.split('.'));
+      } else {
+        return sample.split('.').slice(0, iteration);
+      }
     case 'words':
-      return manyOf(iteration, sample.split(' '));
+      if (!isRandom) {
+        return manyOf(iteration, sample.split(' '));
+      } else {
+        return sample.split(' ').slice(0, iteration);
+      }
     case 'paragraphs':
-      return [...Array(iteration)].map(() =>
-        manyOf(random(1, 6), sample.split('.')).join('.')
-      );
+      if (!isRandom) {
+        return [...Array(iteration)].map(() =>
+          manyOf(random(1, paragraphSize), sample.split('.')).join('.')
+        );
+      } else {
+        return [...Array(iteration)].map(() =>
+          sample.split('.').slice(0, paragraphSize).join('.')
+        );
+      }
     case 'chars':
-      return manyOf(iteration, sample.split('')).filter((char) => char !== ' ');
+      if (!isRandom) {
+        return manyOf(iteration, sample.split('')).filter(
+          (char) => char !== ' '
+        );
+      } else {
+        return sample
+          .split('')
+          .filter((char) => char !== ' ')
+          .slice(0, iteration);
+      }
     default:
       console.error('You can only get paragraphs, words, sentences or chars');
       console.error(
