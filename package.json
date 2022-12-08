@@ -1,5 +1,5 @@
 {
-  "name": "saker",
+  "name": "sakerjs",
   "version": "1.0.0",
   "description": "SakerJS a simple lib written in Typescript to generate random props inside your StoryBook or Ladle stories",
   "main": "build/main/index.js",
@@ -41,11 +41,7 @@
   "engines": {
     "node": ">=10"
   },
-  "dependencies": {
-    "axios": "^0.27.2",
-    "dayjs": "^1.11.5",
-    "nanoid": "^4.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@ava/typescript": "^1.1.1",
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
