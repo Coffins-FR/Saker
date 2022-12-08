@@ -8,13 +8,15 @@ const manyOf = Saker.manyOf(20, sample);
 const log = Saker.repeat(10, {
   name: Saker.oneOf(sample),
   tags: Saker.manyOf(4, sample),
-  street: Saker.lorem(3, 'paragraphs', 8),
+  street: Saker.lorem(3, 'paragraphs', 4, true),
+  age: Saker.oneOf(Saker.numbers(18, 99)),
   // adresses: Saker.repeat(2, {
   //   street: Saker.lorem(3, 'sentences'),
   // }),
-})();
+});
 
 console.log(...log);
+// console.log({ name: Saker.lorem(3, 'paragraphs', 8) });
 
 test('oneOf', (t) => {
   t.is(oneOf, oneOf);

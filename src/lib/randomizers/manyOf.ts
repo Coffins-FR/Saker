@@ -1,5 +1,6 @@
 import random from '../../utils/_random';
 
+/** @hidden */
 export default function manyOf(
   iteration: number,
   sample: ReadonlyArray<string | number>
