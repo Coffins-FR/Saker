@@ -55,4 +55,4 @@ const chars = Saker.lorem(2, 'chars');
 ## More to come
 
 - [x] Inclusion of a compatibility with non regressing tools (static object generation)
-- [] More random functions (Dates, address, basic user profil...)
+- [] More random functions (Dates, address, basic user profile...)
