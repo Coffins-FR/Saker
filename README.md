@@ -33,7 +33,7 @@ const log = Saker.repeat(10, {
   name: Saker.oneOf(sample),
   tags: Saker.manyOf(4, sample),
   adresses: Saker.repeat(2, {
-    street: Saker.oneOf(['Rue de la Boustiffaille', 'Avenue du Lard']),
+    street: Saker.oneOf(['Wilson Street', 'King Road']),
   }),
 })();
 ```

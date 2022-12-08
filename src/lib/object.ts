@@ -33,7 +33,7 @@ const Saker = {
    * @param isRandom: allowing random text or not, usefull for testing
    * @param paragraphSize: size of paragraph, to use in pair with 'paragraph'
    * @returns return an array of string if you choose words, sentences or chars
-   * @returns return an array of array of strings with length radomly choose between 1 and 6
+   * @returns return an array of array of strings with length randomly choose between 1 and 6
    */
   lorem: function (
     iteration: number,
