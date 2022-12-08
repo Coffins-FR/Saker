@@ -1,7 +1,7 @@
 import data from '../../sample/lorem.json';
 import random from '../../utils/_random';
 import manyOf from '../randomizers/manyOf';
-
+/** @hidden */
 export default function lorem(
   iteration = 1,
   typeOfText: string,
@@ -11,29 +11,39 @@ export default function lorem(
   const sample: string = data.text;
   switch (typeOfText) {
     case 'sentences':
-      if (!isRandom) {
+      if (isRandom) {
         return manyOf(iteration, sample.split('.'));
       } else {
         return sample.split('.').slice(0, iteration);
       }
     case 'words':
-      if (!isRandom) {
+      if (isRandom) {
         return manyOf(iteration, sample.split(' '));
       } else {
         return sample.split(' ').slice(0, iteration);
       }
     case 'paragraphs':
-      if (!isRandom) {
-        return [...Array(iteration)].map(() =>
-          manyOf(random(1, paragraphSize), sample.split('.')).join('.')
-        );
+      if (isRandom) {
+        return [...Array(iteration)]
+          .map(() =>
+            manyOf(random(1, paragraphSize), sample.split('.')).join('.')
+          )
+          .map((element) => element + '.');
       } else {
-        return [...Array(iteration)].map(() =>
-          sample.split('.').slice(0, paragraphSize).join('.')
-        );
+        return [...Array(iteration)]
+          .map((_, index) =>
+            sample
+              .split('.')
+              .slice(
+                index * paragraphSize,
+                paragraphSize * index + paragraphSize
+              )
+              .join('.')
+          )
+          .map((element) => element + '.');
       }
     case 'chars':
-      if (!isRandom) {
+      if (isRandom) {
         return manyOf(iteration, sample.split('')).filter(
           (char) => char !== ' '
         );
