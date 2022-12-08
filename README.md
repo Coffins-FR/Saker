@@ -32,7 +32,7 @@ To generate a complex random object :
 const log = Saker.repeat(10, {
   name: Saker.oneOf(sample),
   tags: Saker.manyOf(4, sample),
-  adresses: Saker.repeat(2, {
+  addresses: Saker.repeat(2, {
     street: Saker.oneOf(['Wilson Street', 'King Road']),
   }),
 })();
@@ -55,4 +55,4 @@ const chars = Saker.lorem(2, 'chars');
 ## More to come
 
 - [x] Inclusion of a compatibility with non regressing tools (static object generation)
-- [] More random functions (Dates, adress, basic user profil...)
+- [] More random functions (Dates, address, basic user profil...)
